@@ -1,7 +1,7 @@
 Project Description
     # Problem statement
 
-        - Have you ever been in a reading rut? After finishing something you loved, you find yourself drifting, bereft of a new book to look forward to when you get home. Or mayber you're in the bookstore, holding something that almost piques your interest but after opening the first page it just falls flat. If only there were a tool to help you find that next love in your life, the next book you'll tear through in a matter of days only to grieve when you've finished it. Introducing Shelf Life!
+        - Have you ever been in a reading rut? After finishing something you loved, you find yourself drifting, bereft of a new book to look forward to when you get home. Or maybe you're in the bookstore, holding something that almost piques your interest but after opening the first page it just falls flat. If only there were a tool to help you find that next love in your life, the next book you'll tear through in a matter of days only to grieve when you've finished it. Introducing Shelf Life!
 
         - Every book list application I've used is more or less the same - search a book, add it to your list, mark it as finished. My main gripe is a lack of personalization: the search results can return titles you didn't intend, and it will never suggest titles in a similar genre or by a another author.  While there a lot of reading list apps that let you save what books you'd like to read, none of them offer you the option of taking a picture of the title or author of a book to return information about the author, other titles in the genre, and authors you also might like.
 
@@ -22,3 +22,33 @@ Project Description
         - Realm Mobile Database: Using IOS core data, Realm is an interface that allows you to build a database that stores user input without having to set up a server or join traditional tables. It's an object relational database to support the data model.
         - Google Vision API: Google Vision is on the cutting edge of text recognition technology; if it's clearly printed, it can be read by the API. This saves the user the effort of typing a title and scanning through search results.
         - GoodReads API: The best community for book lovers, the data rich API has everything a personalized book app like Shelf Life needs: bios on authors, 700 thousand titles, summaries, reviews, and suggestions!
+
+        
+        
+        
+        
+import UIKit
+
+class ShelfViewController: UITableViewController {
+
+    var bookArray = ["Anna Karenina", "Brothers Karamazov", "Doctor Zhivago"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bookArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
+        
+        cell.textLabel?.text = bookArray[indexPath.row]
+    
+        return cell
+    }
+}
+
