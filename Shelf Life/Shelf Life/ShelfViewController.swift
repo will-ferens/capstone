@@ -23,7 +23,8 @@ class ShelfViewController: UITableViewController {
     
     
     private func loadSampleBooks() {
-        guard let book1 = Book(title: "Anna Karenina", author: "Leo Tolstoy", cover: nil) else {
+        guard let book1 = Book(title: "Anna Karenina", author: "Leo Tolstoy", cover: nil)
+            else {
             fatalError("Unable to instantiate book")
         }
         
@@ -31,7 +32,8 @@ class ShelfViewController: UITableViewController {
             fatalError("Unable to instantiate book")
         }
         
-        guard let book3 = Book(title: "Doctor Zhivago", author: "Boris Pasternak", cover: nil) else {
+        guard let book3 = Book(title: "Doctor Zhivago", author: "Boris Pasternak", cover: nil)
+            else {
             fatalError("Unable to instantiate book")
         }
         
