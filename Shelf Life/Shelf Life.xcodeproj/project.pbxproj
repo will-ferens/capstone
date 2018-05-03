@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3E88871208B1E498AACD75FE /* Pods_Shelf_LifeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4039F143F410ECBE123CB2 /* Pods_Shelf_LifeTests.framework */; };
 		9C85D15FFE894181BBB858B7 /* Pods_Shelf_LifeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE0B34E908A4A30BCED9314 /* Pods_Shelf_LifeUITests.framework */; };
+		BE6A05A6209BAB240025E503 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6A05A5209BAB240025E503 /* CameraHandler.swift */; };
+		BE6A05A8209BB1690025E503 /* GoogleBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6A05A7209BB1690025E503 /* GoogleBooks.swift */; };
+		BEAA3253209B6DCA008F9ADC /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAA3252209B6DC9008F9ADC /* BookDetailViewController.swift */; };
 		BEC69906209A5FC3007BF47D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC69905209A5FC3007BF47D /* AppDelegate.swift */; };
 		BEC69908209A5FC3007BF47D /* ShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC69907209A5FC3007BF47D /* ShelfViewController.swift */; };
 		BEC6990B209A5FC3007BF47D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC69909209A5FC3007BF47D /* Main.storyboard */; };
@@ -16,7 +19,7 @@
 		BEC69910209A5FC3007BF47D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC6990E209A5FC3007BF47D /* LaunchScreen.storyboard */; };
 		BEC6991B209A5FC3007BF47D /* Shelf_LifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC6991A209A5FC3007BF47D /* Shelf_LifeTests.swift */; };
 		BEC69926209A5FC4007BF47D /* Shelf_LifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC69925209A5FC4007BF47D /* Shelf_LifeUITests.swift */; };
-		BEC69938209A66E7007BF47D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC69937209A66E7007BF47D /* API.swift */; };
+		BEC69938209A66E7007BF47D /* GoodReads.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC69937209A66E7007BF47D /* GoodReads.swift */; };
 		BEFC5EB7209A8BB90023A85A /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFC5EB6209A8BB90023A85A /* BookTableViewCell.swift */; };
 		BEFC5EB9209A97810023A85A /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFC5EB8209A97810023A85A /* Book.swift */; };
 		C1A17E4C13E3F2B68D10BDFA /* Pods_Shelf_Life.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739624C89EF2481E795F33F2 /* Pods_Shelf_Life.framework */; };
@@ -48,6 +51,9 @@
 		746775EEA87D89B767E7479C /* Pods-Shelf LifeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shelf LifeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shelf LifeTests/Pods-Shelf LifeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2FE9FB998A91292D76EA8D1 /* Pods-Shelf LifeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shelf LifeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shelf LifeTests/Pods-Shelf LifeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BCE0B34E908A4A30BCED9314 /* Pods_Shelf_LifeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shelf_LifeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE6A05A5209BAB240025E503 /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
+		BE6A05A7209BB1690025E503 /* GoogleBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooks.swift; sourceTree = "<group>"; };
+		BEAA3252209B6DC9008F9ADC /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		BEC69902209A5FC3007BF47D /* Shelf Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shelf Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC69905209A5FC3007BF47D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC69907209A5FC3007BF47D /* ShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +67,7 @@
 		BEC69921209A5FC4007BF47D /* Shelf LifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shelf LifeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC69925209A5FC4007BF47D /* Shelf_LifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf_LifeUITests.swift; sourceTree = "<group>"; };
 		BEC69927209A5FC4007BF47D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEC69937209A66E7007BF47D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		BEC69937209A66E7007BF47D /* GoodReads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodReads.swift; sourceTree = "<group>"; };
 		BEFC5EB6209A8BB90023A85A /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		BEFC5EB8209A97810023A85A /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		DA22976E5906E096F72EEBDF /* Pods-Shelf LifeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shelf LifeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shelf LifeUITests/Pods-Shelf LifeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,13 +140,7 @@
 				BEC69936209A6678007BF47D /* Controller */,
 				BEC69934209A6653007BF47D /* View */,
 				BEC69933209A6629007BF47D /* Model */,
-				BEC69905209A5FC3007BF47D /* AppDelegate.swift */,
 				BEFC5EB8209A97810023A85A /* Book.swift */,
-				BEC69907209A5FC3007BF47D /* ShelfViewController.swift */,
-				BEFC5EB6209A8BB90023A85A /* BookTableViewCell.swift */,
-				BEC69909209A5FC3007BF47D /* Main.storyboard */,
-				BEC6990C209A5FC3007BF47D /* Assets.xcassets */,
-				BEC6990E209A5FC3007BF47D /* LaunchScreen.storyboard */,
 				BEC69911209A5FC3007BF47D /* Info.plist */,
 			);
 			path = "Shelf Life";
@@ -174,6 +174,9 @@
 		BEC69934209A6653007BF47D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BEC69909209A5FC3007BF47D /* Main.storyboard */,
+				BEC6990C209A5FC3007BF47D /* Assets.xcassets */,
+				BEC6990E209A5FC3007BF47D /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +184,11 @@
 		BEC69936209A6678007BF47D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BEC69905209A5FC3007BF47D /* AppDelegate.swift */,
+				BEC69907209A5FC3007BF47D /* ShelfViewController.swift */,
+				BEFC5EB6209A8BB90023A85A /* BookTableViewCell.swift */,
+				BEAA3252209B6DC9008F9ADC /* BookDetailViewController.swift */,
+				BE6A05A5209BAB240025E503 /* CameraHandler.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,7 +196,8 @@
 		BEC69939209A66F0007BF47D /* API */ = {
 			isa = PBXGroup;
 			children = (
-				BEC69937209A66E7007BF47D /* API.swift */,
+				BEC69937209A66E7007BF47D /* GoodReads.swift */,
+				BE6A05A7209BB1690025E503 /* GoogleBooks.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -344,10 +353,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Shelf Life/Pods-Shelf Life-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,11 +427,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6A05A6209BAB240025E503 /* CameraHandler.swift in Sources */,
+				BEAA3253209B6DCA008F9ADC /* BookDetailViewController.swift in Sources */,
 				BEFC5EB7209A8BB90023A85A /* BookTableViewCell.swift in Sources */,
 				BEC69908209A5FC3007BF47D /* ShelfViewController.swift in Sources */,
-				BEC69938209A66E7007BF47D /* API.swift in Sources */,
+				BEC69938209A66E7007BF47D /* GoodReads.swift in Sources */,
 				BEFC5EB9209A97810023A85A /* Book.swift in Sources */,
 				BEC69906209A5FC3007BF47D /* AppDelegate.swift in Sources */,
+				BE6A05A8209BB1690025E503 /* GoogleBooks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

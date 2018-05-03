@@ -6,7 +6,7 @@ target 'Shelf Life' do
 
     # Pods for Shelf Life
     pod 'SwiftyJSON'
-
+    pod 'Alamofire'
   target 'Shelf LifeTests' do
     inherit! :search_paths
     # Pods for testing
