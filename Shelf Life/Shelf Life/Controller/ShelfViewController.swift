@@ -9,11 +9,13 @@
 import UIKit
 import os.log
 import AVFoundation
+import SwiftyJSON
+import Alamofire
+
 
 class ShelfViewController: UITableViewController {
-
-  var books = [Book]()
-    
+    var books = [Book]()
+    let GOOGLE_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=search+terms"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +27,16 @@ class ShelfViewController: UITableViewController {
     
     
     private func loadSampleBooks() {
-        guard let book1 = Book(title: "Anna Karenina", author: "Leo Tolstoy", cover: nil)
+        guard let book1 = Book(id: "a", title: "Anna Karenina", author: "Leo Tolstoy", pageCount: 800, cover: "https://books.google.com/books/content?id=JuMdBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE73_u0U4noVUwZfyW3V1Gnve21kfC-6Lepe4GTqNU-a4txggArYOABQLsK6awA4WxigaFKxzZv-JVqWZhmoBf1gbOnWO-gnJjm6ruurmGTsjLw17ZTcl-F__4iWnNnL6x2jy5efQ", description: "Leo Tolstoy goes in on this one fam")
             else {
             fatalError("Unable to instantiate book")
         }
         
-        guard let book2 = Book(title: "Brothers Karamazov", author: "Fyodor Dostoevsky", cover: nil) else {
+        guard let book2 = Book(id: "b", title: "Brothers Karamazov", author: "Fyodor Doestevsky", pageCount: 600, cover: "", description: "Doestevsky dies right after this, damn") else {
             fatalError("Unable to instantiate book")
         }
         
-        guard let book3 = Book(title: "Doctor Zhivago", author: "Boris Pasternak", cover: nil)
+        guard let book3 = Book(id: "c", title: "Doctor Zhivago", author: "Boris Pasternak", pageCount: 800, cover: "", description: "There's a movie too")
             else {
             fatalError("Unable to instantiate book")
         }
@@ -83,31 +85,39 @@ class ShelfViewController: UITableViewController {
 
             let selectedBook = books[indexPath.row]
 //            BookDetailViewController.book = selectedBook.title!
-            BookDetailViewController.book = Book(title: String(selectedBook.title!), author: String(selectedBook.author!), cover: nil)
+            BookDetailViewController.book = Book(id: String(selectedBook.id!), title: String(selectedBook.title!), author: String(selectedBook.author!), pageCount: Int(selectedBook.pageCount!), cover: String(selectedBook.cover!), description: String(selectedBook.description!))
 //            BookDetailViewController.author.text = selectedBook.author
 //            BookDetailViewController.cover.image = selectedBook.cover
-            
+        case "BarCodeViewController":
+            guard segue.destination is BarCodeViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
         default:
             fatalError("Unexpected destination: \(segue.identifier)")
         }
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
-        CameraHandler.shared.showActionSheet(vc: self)
-        CameraHandler.shared.imagePickedBlock = { (image) in
-            /* get your image here */
-            
-        }
+        
+//        CameraHandler.shared.showActionSheet(vc: self)
+//        CameraHandler.shared.imagePickedBlock = { (image) in
+//            /* get your image here */
+//
+//        }
+        
     }
     
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        guard let avMetadata = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
-            let isbn = avMetadata.stringValue else { return }
-        DispatchQueue.main.sync {
-            
-        }
-    }
+//    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+//        guard let avMetadata = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
+//            let isbn = avMetadata.stringValue else { return }
+//        DispatchQueue.main.sync {
+//
+//        }
+//    }
     
 
 }
+
+//class GoogleBooks {
+//}
 

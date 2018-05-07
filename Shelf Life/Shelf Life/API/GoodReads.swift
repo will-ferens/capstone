@@ -15,22 +15,22 @@ import SwiftyJSON
 import Alamofire
 
 class GoodReads {
-    let GOOD_READS = "https://www.goodreads.com/search/index.xml"
-    func getBooks(url: String, parameters: [String : String]) {
-        Alamofire.request(url, method: .get, parameters: parameters).validate().responseJSON{
-            response in
-            if response.result.isSuccess {
-                print("shit yeah")
-                
-                let booksJSON : JSON = JSON(response.result.value!)
-                
-                print(booksJSON)
-            } else {
-                print("Error: \(String(describing: response.result.error))")
-            }
-        }
-    }
-    
+//    let GOOD_READS = "https://www.goodreads.com/search/index.xml"
+//    func getBooks(url: String, parameters: [String : String]) {
+//        Alamofire.request(url, method: .get, parameters: parameters).validate().responseJSON{
+//            response in
+//            if response.result.isSuccess {
+//                print("shit yeah")
+//                
+//                let booksJSON : JSON = JSON(response.result.value!)
+//                
+//                print(booksJSON)
+//            } else {
+//                print("Error: \(String(describing: response.result.error))")
+//            }
+//        }
+//    }
+//    
 }
 
 

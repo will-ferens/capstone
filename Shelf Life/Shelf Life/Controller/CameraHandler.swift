@@ -74,5 +74,7 @@ extension CameraHandler: UIImagePickerControllerDelegate, UINavigationController
         }
         currentVC.dismiss(animated: true, completion: nil)
     }
-    
+    func presentCameraPermissionsAlert() {
+        let alert = UIAlertController(title: "Permission Required", message: "You'll need to change your settings to allow Shelf Life to use your device's camera.", preferredStyle: UIAlertControllerStyle.alert)
+        }
 }
