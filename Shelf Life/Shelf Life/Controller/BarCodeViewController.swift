@@ -8,12 +8,15 @@
 
 import UIKit
 import AVFoundation
-
+import Alamofire
+import SwiftyJSON
 class BarCodeViewController: UIViewController,  AVCaptureMetadataOutputObjectsDelegate {
-    let GOOGLE_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=search+terms"
+    
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var searchedBook: Book?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +97,8 @@ class BarCodeViewController: UIViewController,  AVCaptureMetadataOutputObjectsDe
     }
     
     func found(code: String) {
-        GoogleBooks.getBooks(url: GOOGLE_BOOKS, parameters: ["q" : code])
+        let GOOGLE_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=isbn:\(code)&key=AIzaSyAHWyKUtEptq99fnW9I7x2V7LOjrmgCnLk"
+        getBooks(url: GOOGLE_BOOKS)
         print(code)
     }
     
@@ -104,5 +108,67 @@ class BarCodeViewController: UIViewController,  AVCaptureMetadataOutputObjectsDe
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    func getBooks(url: String) {
+        Alamofire.request(url, method: .get).validate().responseJSON{
+            response in
+            if response.result.isSuccess {
+                print("shit yeah")
+                
+                let booksJSON : JSON = JSON(response.result.value!)
+            
+                self.createNewBook(json: booksJSON)
+                
+                //print(booksJSON)
+        
+                
+            } else {
+                print("Error: \(String(describing: response.result.error))")
+            }
+        }
+    }
+    
+    func createNewBook(json : JSON){
+        let id = json["items"][0]["id"].string
+        let title = json["items"][0]["volumeInfo"]["title"].string
+        let author = json["items"][0]["volumeInfo"]["authors"][0].string
+        let pageCount = json["items"][0]["volumeInfo"]["pageCount"].int
+        let cover = json["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"].string
+        let description = json["items"][0]["volumeInfo"]["description"].string
+        
+        self.searchedBook = Book.init(id: id!, title: title!, author: author!, pageCount: pageCount!, cover: cover!, description: description!)
+        
+        self.alert(title: "Success!", message: "See book details?", completion: { result in
+            if result {
+        
+                self.performSegue(withIdentifier: "searchDetails", sender: self)
+            }
+        })
+    }
+    
+    
+    func alert (title: String, message: String, completion: @escaping ((Bool) -> Void)) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            
+            alertController.dismiss(animated: true, completion: nil)
+            completion(true) // true signals "YES"
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+            completion(false) // false singals "NO"
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "searchDetails" {
+            let SearchVC = segue.destination as? SearchDetailsViewController
+            SearchVC?.bookViewed = searchedBook
+            
+        }
     }
 }

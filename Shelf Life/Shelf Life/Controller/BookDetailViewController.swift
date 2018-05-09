@@ -30,6 +30,7 @@ class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let URL_IMAGE = URL(string: (book?.cover)!)
         
         let session = URLSession(configuration: .default)
@@ -61,6 +62,9 @@ class BookDetailViewController: UIViewController {
     }
 
     @IBAction func recommendationsPressed(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "showRecommendations", sender: self)
+        dismiss(animated: true, completion: nil)
     }
+    
+    
 }
